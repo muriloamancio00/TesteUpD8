@@ -29,7 +29,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('cliente/create');
     }
 
     /**
@@ -37,7 +37,16 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->objCliente->create([
+            'cpf'=>$request->cpf,
+            'nome'=>$request->nome,
+            'email'=>$request->email,
+            'endereco'=>$request->endereco,
+            'sexo'=>$request->sexo,
+            'estado'=>$request->estado,
+            'cidade'=>$request->cidade,
+            'data_nascimento'=>$request->data_nascimento,
+        ]);
     }
 
     /**
