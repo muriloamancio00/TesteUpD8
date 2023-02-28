@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ClienteModel;
+use App\Models\EstadoModel;
+use App\Models\CidadeModel;
 
 class ClienteController extends Controller
 {
     private $objCliente;
+    private $objEstado;
+    private $objCidade;
 
     public function __construct()
     {
@@ -19,9 +23,10 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $cliente=$this->objCliente->all();
-        return view('cliente/index', compact('cliente'));
-        
+        $clientes=$this->objCliente->all();
+        $table=$clientes;
+        return view('cliente/index', compact('table'));
+        //dd($cliente);
     }
 
     /**
@@ -47,12 +52,13 @@ class ClienteController extends Controller
             'cidade'=>$request->cidade,
             'data_nascimento'=>$request->data_nascimento,
         ]);
+        return redirect('cliente');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
         //
     }
@@ -60,23 +66,34 @@ class ClienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(int $id)
     {
-        //
+        $clientes=$this->objCliente->find($id);
+        return view('cliente/create',compact('clientes'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $this->objCliente->where(['id'=>$id])->update([
+            'cpf'=>$request->cpf,
+            'nome'=>$request->nome,
+            'email'=>$request->email,
+            'endereco'=>$request->endereco,
+            'sexo'=>$request->sexo,
+            'estado'=>$request->estado,
+            'cidade'=>$request->cidade,
+            'data_nascimento'=>$request->data_nascimento,
+        ]);
+        return redirect('cliente');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
         //
     }
