@@ -3,15 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ClienteModel;
 
 class ClienteController extends Controller
 {
+    private $objCliente;
+
+    public function __construct()
+    {
+        $this->objCliente=new ClienteModel();
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('cliente/index');
+        $cliente=$this->objCliente->all();
+        return view('cliente/index', compact('cliente'));
         
     }
 
