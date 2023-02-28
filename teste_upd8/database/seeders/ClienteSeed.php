@@ -13,6 +13,7 @@ class ClienteSeed extends Seeder
     public function run(): void
     {
         DB::table('clientes')->insert([
+            'cpf' => '123.432.432-44',
             'nome' => 'Helena Karol Pinheiro Maia',
             'email' => 'helenamaia@hotmail.com',
             'endereco' => 'rua deodoro da fonseca nº987',

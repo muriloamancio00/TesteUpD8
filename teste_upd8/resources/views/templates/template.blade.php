@@ -10,19 +10,16 @@
 </head>
 
 <body>
-    <div>
+    <div class="mt-3">
         <ul class="nav justify-content-center">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Active</a>
+                <a class="nav-link active" aria-current="page" href="#">Index</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <button class="btn btn-outline-dark ">Cadastrar Cliente</button>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
+                <a class="nav-link disabled">Candidato : </a>
             </li>
             <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
