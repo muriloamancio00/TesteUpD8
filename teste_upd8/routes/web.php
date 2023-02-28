@@ -13,6 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/clientes', function () {
-    return view('welcome');
-});
+Route::resource('/clientes', '\App\Http\Controllers\ClienteController');
