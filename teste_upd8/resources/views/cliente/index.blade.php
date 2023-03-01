@@ -46,7 +46,7 @@
                                         <th scope="row">{{$clientes->id}}</th>
                                         <td>
                                         <button nohref style="cursor:pointer"
-                                                onclick="showInfoModal(
+                                            onclick="showInfoModal(
                                                     'ID : {{ $clientes['id'] }}',
                                                     'NOME : {{$clientes['nome'] }}',
                                                     'CPF: {{$clientes['cpf'] }}',
@@ -54,7 +54,7 @@
                                                     'DATA DE NASCIMENTO : {{$clientes['data_nascimento'] }}',
                                                     'ESTADO : {{ $clientes['estado'] }}',
                                                     'CIDADE : {{$clientes['cidade'] }}',
-                                                    'ENDEREÇO : {{$clientes['endereco'] }}',
+                                                    'ENDERECO : {{$clientes['endereco'] }}',
                                                     )"
                                                 class="btn btn-primary">
                                                 Informação

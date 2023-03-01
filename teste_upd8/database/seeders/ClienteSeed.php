@@ -22,7 +22,7 @@ class ClienteSeed extends Seeder
                 'nome' => $faker->name,
                 'cpf' => $faker->cpf,
                 'email' => $faker->safeEmail,
-                'endereco' => $faker->address,
+                'endereco' => $faker->streetName,
                 'data_nascimento' => $faker->date('Y-m-d', $max = 'now'),
                 'estado' => $faker->stateAbbr,
                 'cidade' => $faker->city,
