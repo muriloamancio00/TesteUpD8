@@ -29,6 +29,7 @@
                             <thead">
                                 <tr>
                                     <th scope="col">ID #</th>
+                                    <th scope="col">Visualizar</th>
                                     <th scope="col">Editar</th>
                                     <th scope="col">Excluir</th>
                                     <th scope="col">Nome</th>
@@ -40,12 +41,28 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($table as $clientes)
+                                    @foreach($cliente as $clientes)
                                     <tr>
                                         <th scope="row">{{$clientes->id}}</th>
                                         <td>
+                                        <button nohref style="cursor:pointer"
+                                                onclick="showInfoModal(
+                                                    'ID : {{ $clientes['id'] }}',
+                                                    'NOME : {{$clientes['nome'] }}',
+                                                    'CPF: {{$clientes['cpf'] }}',
+                                                    'SEXO : {{$clientes['sexo'] }}',
+                                                    'DATA DE NASCIMENTO : {{$clientes['data_nascimento'] }}',
+                                                    'ESTADO : {{ $clientes['estado'] }}',
+                                                    'CIDADE : {{$clientes['cidade'] }}',
+                                                    'ENDEREÇO : {{$clientes['endereco'] }}',
+                                                    )"
+                                                class="btn btn-primary">
+                                                Informação
+                                            </button>
+                                        </td>
+                                        <td>
                                             <a href="{{url("cliente/$clientes->id/edit")}}">
-                                                <button class="btn btn-primary">Editar</button>
+                                                <button class="btn btn-success">Editar</button>
                                             </a>
                                         </td>
                                         <td>
@@ -61,7 +78,8 @@
                                         <td>{{$clientes->estado}}</td>
                                         <td>{{$clientes->cidade}}</td>
                                         <td>{{$clientes->sexo}}</td>
-                                        <form action="{{ route('cliente.destroy', $clientes['id']) }}" method="POST" id="form{{$clientes['id']}}">
+                                        <form action="{{ route('cliente.destroy', $clientes['id']) }}" method="POST"
+                                            id="form{{$clientes['id']}}">
                                             @csrf
                                             @method('DELETE')
                                         </form>
@@ -69,6 +87,7 @@
                                     @endforeach
                                 </tbody>
                         </table>
+                        {{ $cliente->links() }}
                     </div>
                 </div>
             </div>

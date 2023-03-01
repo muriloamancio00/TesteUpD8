@@ -23,9 +23,9 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes=$this->objCliente->all();
-        $table=$clientes;
-        return view('cliente.index', compact('table'));
+        $cliente=$this->objCliente->simplePaginate(7);
+        $table=$cliente;
+        return view('cliente.index', compact('cliente'));
         //dd($cliente);
     }
 

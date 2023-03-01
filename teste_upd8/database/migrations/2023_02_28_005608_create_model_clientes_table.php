@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('email');
             $table->string('endereco');
             $table->string('sexo');
-            $table->string('estado')->nullable();
-            $table->string('cidade')->nullable();
-            $table->date('data_nascimento')->nullable();
+            $table->string('estado');
+            $table->string('cidade');
+            $table->date('data_nascimento');
             $table->timestamps();
         });
     }
