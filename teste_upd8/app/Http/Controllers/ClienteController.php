@@ -25,7 +25,7 @@ class ClienteController extends Controller
     {
         $clientes=$this->objCliente->all();
         $table=$clientes;
-        return view('cliente/index', compact('table'));
+        return view('cliente.index', compact('table'));
         //dd($cliente);
     }
 
@@ -95,6 +95,9 @@ class ClienteController extends Controller
      */
     public function destroy(int $id)
     {
-        //
+        $cliente = ClienteModel::find($id);
+        $cliente->delete();
+
+        return redirect()->route('cliente.index');
     }
 }

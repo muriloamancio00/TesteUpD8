@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\CidadeModels;
 
 class CidadeController extends Controller
 {
@@ -61,4 +62,12 @@ class CidadeController extends Controller
     {
         //
     }
+
+    public function selectCidade(Request $request) {
+        
+        $cidade = CidadeModel::where('estados_cod_estados', $request->id)->get();
+        
+        return reponse()->json($cidade);
+    }
+
 }

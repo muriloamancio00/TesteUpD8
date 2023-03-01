@@ -49,9 +49,11 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="">
-                                                <button class="btn btn-danger">Excluir</button>
-                                            </a>
+                                            <button nohref style="cursor:pointer"
+                                                onclick="showRemoveModal('{{ $clientes['id'] }}', '{{$clientes['nome'] }}')"
+                                                class="btn btn-danger">
+                                                Excluir
+                                            </button>
                                         </td>
                                         <td>{{$clientes->nome}}</td>
                                         <td>{{$clientes->cpf}}</td>
@@ -59,6 +61,10 @@
                                         <td>{{$clientes->estado}}</td>
                                         <td>{{$clientes->cidade}}</td>
                                         <td>{{$clientes->sexo}}</td>
+                                        <form action="{{ route('cliente.destroy', $clientes['id']) }}" method="POST" id="form{{$clientes['id']}}">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
                                     </tr>
                                     @endforeach
                                 </tbody>
